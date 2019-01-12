@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 #include <sys/types.h>
 #include <unistd.h>
@@ -17,6 +18,9 @@ void CleanUp (int signal);
 
 int main (void) {
     signal (SIGCHLD, CleanUp);
+    std::vector<char> args;
+    args.push_back('a');
+    args.push_back('l');
 
     child_p = fork();
     std::cout << "PID: " << child_p << std::endl;
