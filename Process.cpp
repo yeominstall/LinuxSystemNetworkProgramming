@@ -29,7 +29,9 @@ int main (void) {
         std::cout << "This is child process" << std::endl;
 
         // general ls call
+//        execl ("/bin/ls", "ls", "-al", args, (char*)0);       // This cannot be run
         execl ("/bin/ls", "ls", "-al", (char*)0);
+
         perror ("fork - exec failed");
     } else if (child_p > 0) {
         std::cout << "This is parent process" << std::endl;
