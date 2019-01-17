@@ -50,5 +50,7 @@ int main (void) {
 
 void CleanUp (int signal) {
     int status;
+    //pid_t == -1 : same as wait(2), wait for arbitrary child process
+    //WNOHANG : immediately return even if there is no terminated child process
     while (waitpid ((pid_t) (-1), 0, WNOHANG) > 0) {}
 }
